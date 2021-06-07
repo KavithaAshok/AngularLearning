@@ -1,0 +1,65 @@
+<div>
+    <div *ngFor="let data of items" class="card text-white bg-secondary mb-3"
+        style="width: 500px;margin: 20px;float: left;">
+        <div class="card-header">{{data.name}}</div>
+        <div class="card-body">
+            <h5 class="card-title">{{data.position}}</h5>
+            <h2 class="card-text">{{data.location}}</h2>
+            <p class="card-text">{{data.description}}</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button (click)="updateItems(data)" class="btn btn-primary me-md-2" type="button">Update</button>
+                <button (click)="deleteItems(data)" class="btn btn-danger" type="button">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin: 20px;float: left;">
+        <button (click)="addItem()" class="btn btn-danger" type="button">Add Employee</button>
+        <div *ngIf="showAddEmp" style="margin: 10px;">
+            <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="name" class="form-control" id="name" ngModel>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" name="location" class="form-control" id="location" ngModel>
+                </div>
+                <div class="mb-3">
+                    <label for="position" class="form-label">Position</label>
+                    <input type="text" name="position" class="form-control" id="position" ngModel>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea placeholder="Your message" class="form-control" name="description" ngModel></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <div style="margin: 20px;float: left;">
+        <div *ngIf="showUpdateModal" style="margin: 10px;">
+
+            <form [formGroup]="employeeFormGroup" (ngSubmit)="onUpdate(employeeFormGroup.value)">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Your full name" formControlName="name">
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" name="location" class="form-control" placeholder="location" formControlName="location">
+                </div>
+                <div class="mb-3">
+                    <label for="position" class="form-label">Position</label>
+                    <input type="text" name="position" class="form-control" placeholder="position" formControlName="position">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea placeholder="Your message" class="form-control" name="description" formControlName="description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

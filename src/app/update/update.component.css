@@ -1,0 +1,37 @@
+header {
+    background-color: royalblue;
+    height: 150px;
+}main {
+    margin: 48px 0;
+}footer {
+    background-color: #272727;
+    position: fixed;
+    bottom: 0px;
+    height: 160px;
+    width: 100%;
+}
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+.flex-items {
+    flex: 20%;
+    padding: 8px;
+    margin: 8px;
+    color: silver;
+    text-align: center;
+}
+.flex-container-second{
+    display: flex;
+    justify-content: center;
+}
+.flex-items-new {
+    border: white solid 2px;
+    border-radius: 8px;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    color: #636363;
+    width: 20%;
+    text-align: justify;
+}
